@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1019811479668",
+    "project_id": "br-battle-royale",
+    "storage_bucket": "br-battle-royale.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019811479668:android:c662c9797e70492d65d121",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.BR"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019811479668-6gvm0m02bga672ajsrj3890brnhl1104.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.DefaultCompany.BR",
+            "certificate_hash": "d03d8cdc0853a91111fde4648e257aa1b5692b05"
+          }
+        },
+        {
+          "client_id": "1019811479668-bj69025autfkqlpji5patu7knt1kijsk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwLFXKSvV45tse1qPQvtjCNN-A3DsCoFQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019811479668-bj69025autfkqlpji5patu7knt1kijsk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

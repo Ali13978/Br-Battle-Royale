@@ -8,6 +8,7 @@ using PlayFab.ClientModels;
 
 public class SplashScreen : MonoBehaviour
 {
+
 	private RectTransform bar;
 
 	private float timeNow;
@@ -35,7 +36,12 @@ public class SplashScreen : MonoBehaviour
     [SerializeField] TMP_InputField nameInputField;
     [SerializeField] Button setNameDoneBtn;
 
-	private void Start()
+    [Header("Login-panel")]
+    [SerializeField] GameObject loginPannel;
+    [SerializeField] Button continueWithGoogleBtn;
+    [SerializeField] Button continueWithFacebookBtn;
+
+    private void Start()
 	{
 		bar = base.transform.Find("Canvas").Find("PanelBottom").Find("PanelEnergy")
 			.Find("Energy")
@@ -46,6 +52,16 @@ public class SplashScreen : MonoBehaviour
         quitBtn.onClick.AddListener(() => {
             Application.Quit();
         });
+
+		loginPannel.SetActive(true);
+
+		continueWithGoogleBtn.onClick.AddListener(() =>
+		{
+			LoginManager.Instance.ContinueWithGoogle(() =>
+			{
+				loginPannel.SetActive(false);
+			});
+		});
 
         setNameDoneBtn.onClick.AddListener(() => {
             string _playerName = nameInputField.text;
