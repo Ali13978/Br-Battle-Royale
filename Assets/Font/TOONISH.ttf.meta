@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 442b2bd24aaf4793bd27004f89435fae
+timeCreated: 1693111078
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: "TOONISH"
+  fontNames:
+  - Toonish
+  fallbackFontReferences: []
+  customCharacters:
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData:
+  assetBundleName: 
+  assetBundleVariant: 
