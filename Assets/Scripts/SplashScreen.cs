@@ -60,6 +60,23 @@ public class SplashScreen : MonoBehaviour
 			LoginManager.Instance.ContinueWithGoogle(() =>
 			{
 				loginPannel.SetActive(false);
+			},
+			() =>
+			{
+				loginPannel.SetActive(true);
+			});
+		});
+
+		continueWithFacebookBtn.onClick.AddListener(() =>
+		{
+			LoginManager.Instance.ContinueWithFacebook(() =>
+            {
+                Time.timeScale = 1f;
+                loginPannel.SetActive(false);
+			}, () =>
+			{
+				Time.timeScale = 1f;
+				loginPannel.SetActive(true);
 			});
 		});
 
