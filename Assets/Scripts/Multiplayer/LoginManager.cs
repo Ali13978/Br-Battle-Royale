@@ -156,4 +156,9 @@ public class LoginManager : MonoBehaviour
             LoginWithCustomID(true);
         
     }
+
+    public void UpdatePlayerName(string name)
+    {
+        AuthenticationService.Instance.UpdatePlayerNameAsync(name);
+    }
 }

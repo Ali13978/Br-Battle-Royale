@@ -39,6 +39,9 @@ public class Gameplay : MonoBehaviour
 			UpdateEnergyPlayer();
 			UpdateEnergyEnemy();
 			UpdateTimeMatch();
+
+            if (Input.GetKeyDown(KeyCode.Space))
+                LeaderboardManager.instance.AddScore(30);
 		}
 	}
 
@@ -405,26 +408,29 @@ public class Gameplay : MonoBehaviour
 		{
 			Transform winLoseAnimation = base.transform.parent.Find("WinLose").Find("Canvas").Find("PanelCenter")
 				.Find("WinLoseAnimation");
+
 			string condition = string.Empty;
-			if (global.winLoseCondition == 1)
-			{
-				condition = "Win";
-				int num = MainMenu.userPlayer.WinLoseBattle(global.star, isWin: true);
-				winLoseAnimation.Find("Loot").Find("Loot").GetComponent<Image>()
-					.sprite = loot[num - 1];
-				}
-				else if (global.winLoseCondition == 2)
-				{
-					condition = "Lose";
-					MainMenu.userPlayer.WinLoseBattle(global.star, isWin: false);
-				}
-				else
-				{
-					condition = "Lose";
-					MainMenu.userPlayer.WinLoseBattle(global.star, isWin: false);
-					winLoseAnimation.Find("ImageLose").Find("Text").GetComponent<Text>()
-						.text = "DRAW";
-					}
+            if (global.winLoseCondition == 1)
+            {
+                condition = "Win";
+                int num = MainMenu.userPlayer.WinLoseBattle(global.star, isWin: true);
+                winLoseAnimation.Find("Loot").Find("Loot").GetComponent<Image>()
+                    .sprite = loot[num - 1];
+
+                LeaderboardManager.instance.AddScore(30);
+            }
+            else if (global.winLoseCondition == 2)
+            {
+                condition = "Lose";
+                MainMenu.userPlayer.WinLoseBattle(global.star, isWin: false);
+            }
+            else
+            {
+                condition = "Lose";
+                MainMenu.userPlayer.WinLoseBattle(global.star, isWin: false);
+                winLoseAnimation.Find("ImageLose").Find("Text").GetComponent<Text>()
+                    .text = "DRAW";
+            }
 					for (int i = 0; i < global.star; i++)
 					{
 						winLoseAnimation.Find("Star").Find(string.Empty + (i + 1)).Find("star")

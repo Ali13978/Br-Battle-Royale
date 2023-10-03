@@ -97,6 +97,8 @@ public class SplashScreen : MonoBehaviour
             (result) => {
                 Debug.LogError(result.ErrorMessage);
             });
+
+            LoginManager.Instance.UpdatePlayerName(_playerName);
         });
 	}
 

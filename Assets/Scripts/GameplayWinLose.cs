@@ -7,9 +7,9 @@ public class GameplayWinLose : MonoBehaviour
 {
 	public Button loot;
 
-	public Button share;
+	//public Button share;
 
-	private bool isShare;
+	//private bool isShare;
 
 	private void Start()
 	{
@@ -28,15 +28,15 @@ public class GameplayWinLose : MonoBehaviour
 				//ADMOB.instance.ShowBanner(AdPosition.BOTTOM_CENTER);
 				SceneManager.LoadSceneAsync("Main Menu");
 			});
-			share.onClick.AddListener(delegate
-			{
-				if (!isShare)
-				{
-					isShare = true;
-					share.GetComponent<Text>().text = string.Empty;
-					//FACEBOOK.instance.FaceBookShare();
-				}
-			});
+			//share.onClick.AddListener(delegate
+			//{
+			//	if (!isShare)
+			//	{
+			//		isShare = true;
+			//		share.GetComponent<Text>().text = string.Empty;
+			//		//FACEBOOK.instance.FaceBookShare();
+			//	}
+			//});
 		}
 		else
 		{
