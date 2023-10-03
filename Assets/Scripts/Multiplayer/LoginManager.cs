@@ -34,7 +34,7 @@ public class LoginManager : MonoBehaviour
         }
         await UnityServices.InitializeAsync();
         googleSignInScript = AndroidGoogleSignIn.Init(this.gameObject);
-
+        
         if (!FB.IsInitialized)
         {
             // Initialize the Facebook SDK
@@ -78,7 +78,8 @@ public class LoginManager : MonoBehaviour
     public void ContinueWithFacebook(Action pressed, Action Failed)
     {
         pressed?.Invoke();
-        var perms = new List<string>() { "public_profile", "email" };
+
+        IEnumerable<string> perms = null;
         FB.LogInWithReadPermissions(perms,async (result) =>
         {
             if (FB.IsLoggedIn)
