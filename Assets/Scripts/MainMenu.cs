@@ -463,7 +463,7 @@ public class MainMenu : MonoBehaviour
     private void RefreshTop()
     {
         textLevel.text = string.Empty + userPlayer.level;
-        textRank.text = "MMR: " + userPlayer.rank;
+        textRank.text = userPlayer.rank.ToString();
         textGold.text = string.Empty + userPlayer.gold;
         textExp.text = userPlayer.exp + "/" + userPlayer.GetMaxExp();
         textKey.text = userPlayer.key + "/" + userPlayer.GetMaxKey();
