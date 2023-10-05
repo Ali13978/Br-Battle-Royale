@@ -5,18 +5,11 @@ using UnityEngine.UI;
 using TMPro;
 using PlayFab;
 using PlayFab.ClientModels;
+using System.Collections.Generic;
 
 public class SplashScreen : MonoBehaviour
 {
-
-	private RectTransform bar;
-
-	private float timeNow;
-
-	private float timeMax = 0.5f;
-
-	private int barNow;
-
+    
 	public bool isStart;
 
     #region Singleton
@@ -41,29 +34,36 @@ public class SplashScreen : MonoBehaviour
     [SerializeField] Button continueWithGoogleBtn;
     [SerializeField] Button continueWithFacebookBtn;
 
+    [Header("Loading-Pannel")]
+    [SerializeField] GameObject loadingPannel;
+    [SerializeField] List<Image> loadingBarImages;
+    [SerializeField] Sprite yellowBarSprite;
+    [SerializeField] TMP_Text percentageText;
+    private float timeNow;
+    private float timeMax = 0.5f;
+    private int barNow;
+
     private void Start()
 	{
-		bar = base.transform.Find("Canvas").Find("PanelBottom").Find("PanelEnergy")
-			.Find("Energy")
-			.Find("Bar")
-			.GetComponent<RectTransform>();
-		bar.transform.parent.Find("Text").GetComponent<Text>().text = "- Now Loading -";
+        TurnOffAllPannels();
+        loginPannel.SetActive(true);
 
         quitBtn.onClick.AddListener(() => {
             Application.Quit();
         });
 
-		loginPannel.SetActive(true);
-
+        
 		continueWithGoogleBtn.onClick.AddListener(() =>
 		{
 			LoginManager.Instance.ContinueWithGoogle(() =>
 			{
-				loginPannel.SetActive(false);
+                TurnOffAllPannels();
+                loadingPannel.SetActive(true);
 			},
 			() =>
 			{
-				loginPannel.SetActive(true);
+                TurnOffAllPannels();
+                loginPannel.SetActive(true);
 			});
 		});
 
@@ -72,10 +72,12 @@ public class SplashScreen : MonoBehaviour
 			LoginManager.Instance.ContinueWithFacebook(() =>
             {
                 Time.timeScale = 1f;
-                loginPannel.SetActive(false);
+                TurnOffAllPannels();
+                loadingPannel.SetActive(true);
 			}, () =>
 			{
 				Time.timeScale = 1f;
+                TurnOffAllPannels();
 				loginPannel.SetActive(true);
 			});
 		});
@@ -102,35 +104,53 @@ public class SplashScreen : MonoBehaviour
         });
 	}
 
+    private void TurnOffAllPannels()
+    {
+        loadingPannel.SetActive(false);
+        loginPannel.SetActive(false);
+    }
+
 	private void Update()
-	{
-		if (!isStart)
-		{
-			return;
-		}
-		if (timeNow >= timeMax)
-		{
-			timeNow -= timeMax;
-			barNow++;
-			if (barNow == 1)
-			{
-				base.transform.parent.Find("Sound").GetComponent<GlobalSound>().AudioOnce("Sound/GetItem", 0.31f);
-			}
-		}
-		else
-		{
-			timeNow += Time.deltaTime;
-		}
-		if (barNow >= 10)
-		{
-			timeNow = 0f;
-			isStart = false;
-			StartCoroutine(BarFull());
-		}
-		float num = (float)(barNow * 30) + timeNow / timeMax * 30f;
-		bar.localPosition = new Vector3(-150f + num / 2f, 0f, 0f);
-		bar.sizeDelta = new Vector2(num, 15f);
+    {
+        if (!isStart)
+        {
+            return;
+        }
+
+        FillLoadingBar();
 	}
+
+    private void FillLoadingBar()
+    {
+        if (timeNow >= timeMax)
+        {
+            timeNow -= timeMax;
+            barNow++;
+            if (barNow == 1)
+            {
+                base.transform.parent.Find("Sound").GetComponent<GlobalSound>().AudioOnce("Sound/GetItem", 0.31f);
+            }
+        }
+        else
+        {
+            timeNow += Time.deltaTime;
+        }
+        if (barNow >= 10)
+        {
+            timeNow = 0f;
+            isStart = false;
+            StartCoroutine(BarFull());
+        }
+
+        //Calculations for Percentage and bar filling
+        float num = (float)(barNow * 30) + timeNow / timeMax * 30f;
+        int BarNum = (int)( (num / 300.0f) * 14f);
+        int Percentage =(int) ((num / 300.0f) * 100f);
+        if ((BarNum > 13))
+            BarNum = 13;
+        loadingBarImages[BarNum].sprite = yellowBarSprite;
+        percentageText.text = (Percentage).ToString() + "%";
+    }
 
 	private IEnumerator BarFull()
 	{
