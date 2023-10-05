@@ -1228,14 +1228,14 @@ public class MainMenu : MonoBehaviour
                 RefreshTop();
                 panelFindingMatch.gameObject.SetActive(value: true);
 
-                
 
-                Matchmaker.Instance.StartMatchmaking();
-                //Run.After(UnityEngine.Random.Range(2f, 4f), delegate
-                //{
-                //    panelFindingMatch.Find("Text").GetComponent<Text>().text = "MATCH FOUND!";
-                //    StartCoroutine(RefreshMatchmaking());
-                //});
+
+                //Matchmaker.Instance.StartMatchmaking();
+                Run.After(UnityEngine.Random.Range(2f, 4f), delegate
+                {
+                    panelFindingMatch.Find("Text").GetComponent<Text>().text = "MATCH FOUND!";
+                    StartCoroutine(RefreshMatchmaking());
+                });
             }
             else
             {

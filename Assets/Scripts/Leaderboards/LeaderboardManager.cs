@@ -40,7 +40,7 @@ public class LeaderboardManager : MonoBehaviour
     public async Task<List<Leaderboardentity>> GetEntries()
     {
         GetScoresOptions options = new GetScoresOptions();
-        options.Limit = 8;
+        options.Limit = 7;
         try
         {
             var result = await LeaderboardsService.Instance.GetScoresAsync(leaderboardId, options);
