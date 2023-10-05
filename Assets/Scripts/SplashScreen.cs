@@ -30,7 +30,7 @@ public class SplashScreen : MonoBehaviour
     [SerializeField] Button setNameDoneBtn;
 
     [Header("Login-panel")]
-    [SerializeField] GameObject loginPannel;
+    [SerializeField] public GameObject loginPannel;
     [SerializeField] Button continueWithGoogleBtn;
     [SerializeField] Button continueWithFacebookBtn;
 
@@ -45,9 +45,6 @@ public class SplashScreen : MonoBehaviour
 
     private void Start()
 	{
-        TurnOffAllPannels();
-        loginPannel.SetActive(true);
-
         quitBtn.onClick.AddListener(() => {
             Application.Quit();
         });
@@ -104,7 +101,7 @@ public class SplashScreen : MonoBehaviour
         });
 	}
 
-    private void TurnOffAllPannels()
+    public void TurnOffAllPannels()
     {
         loadingPannel.SetActive(false);
         loginPannel.SetActive(false);

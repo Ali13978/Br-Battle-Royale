@@ -27,11 +27,13 @@ public class LoginManager : MonoBehaviour
     private async void Start()
     {
         DontDestroyOnLoad(gameObject);
+        SplashScreen.Instance.TurnOffAllPannels();
         if (!CheckInternetConnection())
         {
             SplashScreen.Instance.internetConnectionErrorPanel.SetActive(true);
             return;
         }
+        SplashScreen.Instance.loginPannel.SetActive(true);
         await UnityServices.InitializeAsync();
         googleSignInScript = AndroidGoogleSignIn.Init(this.gameObject);
         
