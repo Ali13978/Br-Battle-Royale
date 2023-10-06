@@ -1,11 +1,13 @@
-using admob;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameplayWinLose : MonoBehaviour
 {
-	public Button loot;
+	[SerializeField] private Button loot;
+    [SerializeField] private TMP_Text ribbonText;
 
 	//public Button share;
 
@@ -19,15 +21,22 @@ public class GameplayWinLose : MonoBehaviour
 
 	public void End(int isWin)
 	{
-		//ADMOB.instance.ShowIntersitial();
+        //ADMOB.instance.ShowIntersitial();
+
 		if (isWin == 1)
-		{
-			loot.enabled = true;
+        {
+            ribbonText.text = "Win";
+
+            loot.gameObject.SetActive(true);
+            loot.enabled = true;
 			loot.onClick.AddListener(delegate
 			{
 				//ADMOB.instance.ShowBanner(AdPosition.BOTTOM_CENTER);
 				SceneManager.LoadSceneAsync("Main Menu");
 			});
+
+
+
 			//share.onClick.AddListener(delegate
 			//{
 			//	if (!isShare)
@@ -40,8 +49,10 @@ public class GameplayWinLose : MonoBehaviour
 		}
 		else
 		{
-			//ADMOB.instance.ShowBanner(AdPosition.BOTTOM_CENTER);
-			Run.After(0.5f, delegate
+            //ADMOB.instance.ShowBanner(AdPosition.BOTTOM_CENTER);
+            ribbonText.text = "Defeat";
+
+			Run.After(1f, delegate
 			{
 				SceneManager.LoadSceneAsync("Main Menu");
 			});

@@ -458,9 +458,9 @@ public class Gameplay : MonoBehaviour
 								winLoseAnimation.Find("Star").gameObject.SetActive(value: false);
 							}
 							base.transform.parent.Find("WinLose").gameObject.SetActive(value: true);
-							base.transform.parent.Find("WinLose").GetComponent<Animator>().enabled = true;
-							base.transform.parent.Find("WinLose").GetComponent<Animator>().Play(string.Empty + condition);
-						});
+                            base.transform.parent.Find("WinLose").GetComponent<Animator>().enabled = true;
+                            base.transform.parent.Find("WinLose").GetComponent<Animator>().Play(string.Empty + condition);
+                        });
 					}
 				}
 
