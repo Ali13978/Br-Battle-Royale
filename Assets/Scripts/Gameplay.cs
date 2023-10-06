@@ -39,10 +39,7 @@ public class Gameplay : MonoBehaviour
 			UpdateEnergyPlayer();
 			UpdateEnergyEnemy();
 			UpdateTimeMatch();
-
-            if (Input.GetKeyDown(KeyCode.Space))
-                LeaderboardManager.instance.AddScore(30);
-		}
+        }
 	}
 
 	public void StartGameplay()

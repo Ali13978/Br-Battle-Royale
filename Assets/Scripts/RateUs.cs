@@ -42,7 +42,7 @@ public class RateUs : MonoBehaviour
 	{
 		if (starNumber >= 4)
 		{
-			Application.OpenURL("market://details?id=com.gamebolt.battleroyale");
+			//Application.OpenURL("market://details?id=com.gamebolt.battleroyale");
 		}
 		MainMenu.userPlayer.rate = true;
 		MainMenu.userPlayer.gold += 100;
