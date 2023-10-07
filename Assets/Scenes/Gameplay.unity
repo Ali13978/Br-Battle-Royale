@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 1493500110}
   - component: {fileID: 1493500109}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Defeat
+  m_text: ?????
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 86e99884b19f2fd45b5c9a38cb677b1a, type: 2}
   m_sharedMaterial: {fileID: 7532046402281692255, guid: 86e99884b19f2fd45b5c9a38cb677b1a,
@@ -13380,7 +13380,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

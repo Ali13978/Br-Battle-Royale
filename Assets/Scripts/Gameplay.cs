@@ -1,5 +1,6 @@
 using admob;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -413,17 +414,20 @@ public class Gameplay : MonoBehaviour
                 int num = MainMenu.userPlayer.WinLoseBattle(global.star, isWin: true);
                 winLoseAnimation.Find("Loot").Find("Loot").GetComponent<Image>()
                     .sprite = loot[num - 1];
+                winLoseAnimation.Find("Ribbon").Find("Text").GetComponent<TMP_Text>().text = "Win";
 
                 LeaderboardManager.instance.AddScore(30);
             }
             else if (global.winLoseCondition == 2)
             {
                 condition = "Lose";
+                winLoseAnimation.Find("Ribbon").Find("Text").GetComponent<TMP_Text>().text = "Defeat";
                 MainMenu.userPlayer.WinLoseBattle(global.star, isWin: false);
             }
             else
             {
                 condition = "Lose";
+                winLoseAnimation.Find("Ribbon").Find("Text").GetComponent<TMP_Text>().text = "Draw";
                 MainMenu.userPlayer.WinLoseBattle(global.star, isWin: false);
             }
 
