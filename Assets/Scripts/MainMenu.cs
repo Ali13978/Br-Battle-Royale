@@ -640,9 +640,8 @@ public class MainMenu : MonoBehaviour
                 num4 = 100f;
             }
             float num5 = num4 / 100f * 75f;
-            RectTransform component = transform2.Find("Exp").Find("Bar").GetComponent<RectTransform>();
-            component.localPosition = new Vector3(num5 / 2f - 37f, 8f, 0f);
-            component.sizeDelta = new Vector2(num5, 15f);
+            Slider component = transform2.Find("Exp").Find("Bar").GetComponent<Slider>();
+            component.value = num3;
             transform2.gameObject.SetActive(value: true);
             transform2.Find("Button").Find("Image").GetComponent<Image>()
                 .sprite = icon[globalCard.id - 1];
@@ -680,9 +679,8 @@ public class MainMenu : MonoBehaviour
                 num3 = 100f;
             }
             float num4 = num3 / 100f * 75f;
-            RectTransform component = transform2.Find("Exp").Find("Bar").GetComponent<RectTransform>();
-            component.localPosition = new Vector3(num4 / 2f - 37f, 8f, 0f);
-            component.sizeDelta = new Vector2(num4, 15f);
+            Slider component = transform2.Find("Exp").Find("Bar").GetComponent<Slider>();
+            component.value = num3;
             bool flag = true;
             if (globalCard.level == 0)
             {
@@ -757,10 +755,8 @@ public class MainMenu : MonoBehaviour
         {
             num3 = 100f;
         }
-        float num4 = num3 / 100f * 150f;
-        RectTransform component = transform2.Find("Exp").Find("Bar").GetComponent<RectTransform>();
-        component.localPosition = new Vector3(num4 / 2f - 75f, 8f, 0f);
-        component.sizeDelta = new Vector2(num4, 30f);
+        Slider component = transform2.Find("Exp").Find("Bar").GetComponent<Slider>();
+        component.value = num3;
         transform2.gameObject.SetActive(value: true);
         transform2.Find("Button").Find("Image").GetComponent<Image>()
             .sprite = icon[card.id - 1];
@@ -831,9 +827,8 @@ public class MainMenu : MonoBehaviour
             num3 = 100f;
         }
         float num4 = num3 / 100f * 75f;
-        RectTransform component2 = transform.Find("Exp").Find("Bar").GetComponent<RectTransform>();
-        component2.localPosition = new Vector3(num4 / 2f - 37f, 8f, 0f);
-        component2.sizeDelta = new Vector2(num4, 15f);
+        Slider component2 = transform.Find("Exp").Find("Bar").GetComponent<Slider>();
+        component2.value = num3;
         transform.gameObject.SetActive(value: true);
         transform.Find("Button").Find("Image").GetComponent<Image>()
             .sprite = icon[selectedCard.id - 1];
@@ -869,9 +864,8 @@ public class MainMenu : MonoBehaviour
                 expPercent = 100f;
             }
             float expValue = expPercent / 100f * 150f;
-            RectTransform rect = cardTransform.Find("Exp").Find("Bar").GetComponent<RectTransform>();
-            rect.localPosition = new Vector3(expValue / 2f - 75f, 8f, 0f);
-            rect.sizeDelta = new Vector2(expValue, 30f);
+            Slider rect = cardTransform.Find("Exp").Find("Bar").GetComponent<Slider>();
+            rect.value = expPercent;
             cardTransform.gameObject.SetActive(value: true);
             cardTransform.Find("Button").Find("Image").GetComponent<Image>()
                 .sprite = icon[c.id - 1];
