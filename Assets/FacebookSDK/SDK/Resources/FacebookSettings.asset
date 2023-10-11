@@ -15,10 +15,13 @@ MonoBehaviour:
   selectedAppIndex: 0
   clientTokens:
   - 635bccaaf095f697071dfbb4dc07b647
+  - 51cf1cdab6c6b500263a19f01b550d44
   appIds:
   - 300742225991150
+  - 1030654807937989
   appLabels:
-  - App Name
+  - Login System
+  - Ads
   cookie: 1
   logging: 1
   status: 1
@@ -27,6 +30,7 @@ MonoBehaviour:
   androidKeystorePath: D:\Ali\Br-Battle-Royale\user.keystore
   iosURLSuffix: 
   appLinkSchemes:
+  - list: []
   - list: []
   uploadAccessToken: 
   autoLogAppEventsEnabled: 1
