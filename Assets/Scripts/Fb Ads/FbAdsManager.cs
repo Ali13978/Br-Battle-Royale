@@ -49,6 +49,7 @@ public class FbAdsManager : MonoBehaviour
     // Load a banner ad.
     public void LoadBanner(AdPosition bannerPosition)
     {
+#if !UNITY_EDITOR
         // Create a banner ad view with a specific placement ID and size.
         AdView adView = new AdView("298527799599885_298538522932146", AdSize.BANNER_HEIGHT_50); // Change the string with your Banner Placement id from dashboard
         adView.Register(this.gameObject);
@@ -70,11 +71,14 @@ public class FbAdsManager : MonoBehaviour
 
         // Load the banner ad.
         adView.LoadAd();
+#endif
     }
 
     // Load an interstitial ad.
     public void LoadInterstitial()
     {
+
+#if !UNITY_EDITOR
         // Create an interstitial ad with a specific placement ID.
         interstitialAd = new InterstitialAd("298527799599885_298538816265450"); // Change the string with your Interstitial Placement id from dashboard
         interstitialAd.Register(this.gameObject);
@@ -104,6 +108,8 @@ public class FbAdsManager : MonoBehaviour
 
         // Load the interstitial ad.
         interstitialAd.LoadAd();
+        
+#endif
     }
 
     // Show the interstitial ad.

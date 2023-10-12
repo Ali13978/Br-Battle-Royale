@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static AliScripts.AliExtras;
@@ -12,7 +13,9 @@ public class LeaderboardUI : MonoBehaviour
     [SerializeField] private GameObject playersHolder;
     [SerializeField] private GameObject leaderboardPlayerPrefab;
     [SerializeField] private GameObject leaderboardPlayerGameObject;
-    
+
+    [SerializeField] private List<TMP_Text> top3NameTexts;  
+
     void Start()
     {
         leaderboardOpenBtn.onClick.AddListener(async () => {
@@ -23,6 +26,21 @@ public class LeaderboardUI : MonoBehaviour
             List<Leaderboardentity> entries = await LeaderboardManager.instance.GetEntries();
             for (int i = 0; i < entries.Count; i++)
             {
+                if (i == 0)
+                {
+                    top3NameTexts[i].text = entries[i].playerName.Substring(0, entries[i].playerName.Length - 5);
+                    continue;
+                }
+                else if (i == 1)
+                {
+                    top3NameTexts[i].text = entries[i].playerName.Substring(0, entries[i].playerName.Length - 5);
+                    continue;
+                }
+                else if (i == 2)
+                {
+                    top3NameTexts[i].text = entries[i].playerName.Substring(0, entries[i].playerName.Length - 5);
+                    continue;
+                }
                 GameObject entry = Instantiate(leaderboardPlayerPrefab, playersHolder.transform);
                 string name = entries[i].playerName.Substring(0, entries[i].playerName.Length - 5);
                 entry.GetComponent<LeaderboardPlayer>().UpdateUI((entries[i].rank + 1).ToString(), name, entries[i].score.ToString());

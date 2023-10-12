@@ -10299,6 +10299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e8768e8b09d4c2d9a3ef3ed97150c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: 87b531fcb2a2ccb4da4b501cb3445552, type: 3}
+  namesOfPlayersAway: []
+  playerHomeName: {fileID: 1791207553353853750}
+  playerAwayName: {fileID: 1791207553353853804}
 --- !u!114 &1791207553353853695
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class Gameplay : MonoBehaviour
 
     public GameplayGlobal global;
 
-    private void Awake()
+    private void Start()
     {
         Application.targetFrameRate = 60;
         gameplay = this;
@@ -315,6 +315,7 @@ public class Gameplay : MonoBehaviour
         {
             base.transform.parent.Find("Loading").gameObject.SetActive(value: false);
             base.transform.parent.Find("Prepare").gameObject.SetActive(value: true);
+            base.transform.parent.Find("Prepare").gameObject.GetComponent<GameplayPrepare>().UpdateNames();
             base.transform.parent.Find("Prepare").GetComponent<Animator>().enabled = true;
             base.transform.parent.Find("Prepare").GetComponent<Animator>().Play("Fight");
             global.globalSound.AudioLoop("Sound/Gameplay", 0.32f);

@@ -12,6 +12,7 @@ using System.Collections.Generic;
 public class LoginManager : MonoBehaviour
 {
     public static string EntityId;
+    public string playerName;
     string playerId;
 
     AndroidGoogleSignIn googleSignInScript;
@@ -91,6 +92,7 @@ public class LoginManager : MonoBehaviour
                 Debug.Log("Token String: " + result.AccessToken.TokenString);
                 await AuthenticationService.Instance.SignInWithFacebookAsync(result.AccessToken.TokenString);
 
+                playerName = AuthenticationService.Instance.PlayerName;
                 playerId = AuthenticationService.Instance.PlayerId;
 
                 LoginWithCustomID(false);
@@ -112,6 +114,7 @@ public class LoginManager : MonoBehaviour
 
                 await AuthenticationService.Instance.SignInWithGoogleAsync(Acc.Token);
 
+                playerName = AuthenticationService.Instance.PlayerName;
                 playerId = AuthenticationService.Instance.PlayerId;
 
                 LoginWithCustomID(false);
@@ -153,8 +156,9 @@ public class LoginManager : MonoBehaviour
         
     }
 
-    public void UpdatePlayerName(string name)
+    public async void UpdatePlayerName(string name)
     {
-        AuthenticationService.Instance.UpdatePlayerNameAsync(name);
+        await AuthenticationService.Instance.UpdatePlayerNameAsync(name);
+        playerName = name;
     }
 }
