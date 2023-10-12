@@ -154,7 +154,7 @@ public class MainMenu : MonoBehaviour
             PlayerPrefsX.SetBool("levelup", value: false);
             LootLevelUpListener();
         }
-
+        //FbAdsManager.instance.LoadBanner(AudienceNetwork.AdPosition.BOTTOM);
         matchmakingInfoText = panelFindingMatch.Find("Text").GetComponent<Text>();
     }
 
@@ -426,6 +426,7 @@ public class MainMenu : MonoBehaviour
             panelContentFormationSet.Find("Selected").gameObject.SetActive(value: false);
             RefreshFormation();
             RefreshDeck();
+            FbAdsManager.instance.LoadInterstitial();
         }
         else if (activeMenu == 2)
         {
@@ -850,6 +851,7 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator OpenLoot(string[] loot)
     {
+        FbAdsManager.instance.LoadInterstitial();
         List<string> loots = new List<string>(loot);
         while (loots.Count > 1)
         {
@@ -1225,6 +1227,7 @@ public class MainMenu : MonoBehaviour
 
 
                 //Matchmaker.Instance.StartMatchmaking();
+                FbAdsManager.instance.LoadInterstitial();
                 Run.After(UnityEngine.Random.Range(2f, 4f), delegate
                 {
                     panelFindingMatch.Find("Text").GetComponent<Text>().text = "MATCH FOUND!";

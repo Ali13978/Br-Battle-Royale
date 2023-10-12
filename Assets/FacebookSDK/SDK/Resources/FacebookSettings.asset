@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 635bccaaf095f697071dfbb4dc07b647
-  - 51cf1cdab6c6b500263a19f01b550d44
+  - 049c5b73d53c825790846c1dc177e7e3
+  - 91e8fbc5c1fdbeb25ace3c3fbd3fbd5c
   appIds:
-  - 300742225991150
-  - 1030654807937989
+  - 2435242709990196
+  - 298527799599885
   appLabels:
   - Login System
-  - Ads
+  - Ads System
   cookie: 1
   logging: 1
   status: 1
   xfbml: 0
   frictionlessRequests: 1
-  androidKeystorePath: D:\Ali\Br-Battle-Royale\user.keystore
+  androidKeystorePath: E:\UnityProjects\Br-Battle-Royale\user.keystore
   iosURLSuffix: 
   appLinkSchemes:
   - list: []

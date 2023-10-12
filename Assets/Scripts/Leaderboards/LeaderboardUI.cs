@@ -16,6 +16,8 @@ public class LeaderboardUI : MonoBehaviour
     void Start()
     {
         leaderboardOpenBtn.onClick.AddListener(async () => {
+
+            FbAdsManager.instance.LoadInterstitial();
             leadeboardPannel.SetActive(true);
 
             List<Leaderboardentity> entries = await LeaderboardManager.instance.GetEntries();

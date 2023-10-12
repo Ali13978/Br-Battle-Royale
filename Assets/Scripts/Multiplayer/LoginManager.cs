@@ -81,26 +81,19 @@ public class LoginManager : MonoBehaviour
     {
         pressed?.Invoke();
 
-        IEnumerable<string> perms = null;
-        FB.LogInWithReadPermissions(perms,async (result) =>
+        List<string> perms = new List<string>();
+
+        FB.LogInWithReadPermissions(perms,async result =>
         {
             if (FB.IsLoggedIn)
             {
-                // AccessToken class will have session details
-                var aToken = Facebook.Unity.AccessToken.CurrentAccessToken;
-                // Print current access token's User ID
-                Debug.Log(aToken.UserId);
 
+                Debug.Log("Token String: " + result.AccessToken.TokenString);
                 await AuthenticationService.Instance.SignInWithFacebookAsync(result.AccessToken.TokenString);
 
                 playerId = AuthenticationService.Instance.PlayerId;
 
                 LoginWithCustomID(false);
-                // Print current access token's granted permissions
-                foreach (string perm in aToken.Permissions)
-                {
-                    Debug.Log(perm);
-                }
             }
             else
             {
@@ -143,6 +136,7 @@ public class LoginManager : MonoBehaviour
         Debug.Log("Login successful! Player ID: " + result.PlayFabId);
 
         EntityId = result.EntityToken.Entity.Id;
+        FbAdsManager.instance.LoadInterstitial();
 
         if (result.NewlyCreated)
             SplashScreen.Instance.setNamePanel.SetActive(true);

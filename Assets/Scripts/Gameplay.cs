@@ -404,6 +404,7 @@ public class Gameplay : MonoBehaviour
     {
         if (global.winLoseCondition > 0)
         {
+            FbAdsManager.instance.LoadInterstitial();
             Transform winLoseAnimation = base.transform.parent.Find("WinLose").Find("Canvas").Find("PanelCenter")
                 .Find("WinLoseAnimation");
 
