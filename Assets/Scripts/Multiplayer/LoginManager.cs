@@ -139,7 +139,8 @@ public class LoginManager : MonoBehaviour
         Debug.Log("Login successful! Player ID: " + result.PlayFabId);
 
         EntityId = result.EntityToken.Entity.Id;
-        FbAdsManager.instance.LoadInterstitial();
+
+        //FbAdsManager.instance.LoadInterstitial();
 
         if (result.NewlyCreated)
             SplashScreen.Instance.setNamePanel.SetActive(true);

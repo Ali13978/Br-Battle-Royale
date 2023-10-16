@@ -44,11 +44,19 @@ public class SplashScreen : MonoBehaviour
     private int barNow;
 
     private void Start()
-	{
+    {
+        try
+        {
+            UnityAdsManager.Instance.ShowBanner(UnityEngine.Advertisements.BannerPosition.TOP_CENTER);
+        }
+        catch
+        {
+            Debug.Log("Unexpected Error while showing Ads");
+        }
+
         quitBtn.onClick.AddListener(() => {
             Application.Quit();
         });
-
         
 		continueWithGoogleBtn.onClick.AddListener(() =>
 		{
@@ -99,7 +107,9 @@ public class SplashScreen : MonoBehaviour
 
             LoginManager.Instance.UpdatePlayerName(_playerName);
         });
-	}
+
+        nameInputField.onValueChanged.AddListener(OnInputFieldValueChanged);
+    }
 
     public void TurnOffAllPannels()
     {
@@ -155,4 +165,11 @@ public class SplashScreen : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 		SceneManager.LoadSceneAsync("Main Menu");
 	}
+
+    private void OnInputFieldValueChanged(string text)
+    {
+        // Remove spaces from the input text
+        string textWithoutSpaces = text.Replace(" ", "");
+        nameInputField.text = textWithoutSpaces; // Update the text in the input field
+    }
 }

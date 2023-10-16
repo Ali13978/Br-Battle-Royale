@@ -31,6 +31,14 @@ public class Gameplay : MonoBehaviour
         RefreshAllCard();
         InitAnimationPrepare();
         //ADMOB.instance.ShowBanner(AdPosition.TOP_CENTER);
+        try
+        {
+            UnityAdsManager.Instance.ShowBanner(UnityEngine.Advertisements.BannerPosition.TOP_CENTER);
+        }
+        catch
+        {
+            Debug.Log("Unexpected Error while showing Ads");
+        }
     }
 
     private void Update()
@@ -405,7 +413,8 @@ public class Gameplay : MonoBehaviour
     {
         if (global.winLoseCondition > 0)
         {
-            FbAdsManager.instance.LoadInterstitial();
+            //FbAdsManager.instance.LoadInterstitial();
+
             Transform winLoseAnimation = base.transform.parent.Find("WinLose").Find("Canvas").Find("PanelCenter")
                 .Find("WinLoseAnimation");
 

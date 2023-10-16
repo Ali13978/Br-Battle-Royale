@@ -783,7 +783,8 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -803,11 +804,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 4714d71c-1600-4d64-8cac-1df86643abb4
+  cloudProjectId: 1d1272b8-b9cf-4869-a619-035f2f567e41
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: BR
-  organizationId: aliwebconsultant
+  projectName: Br-BattleRoyale
+  organizationId: aliahsannoki
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   hmiLoadingImage: {fileID: 0}

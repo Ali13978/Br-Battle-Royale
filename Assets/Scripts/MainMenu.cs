@@ -1,3 +1,4 @@
+using Mono.CSharp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -146,6 +147,14 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        try
+        {
+            UnityAdsManager.Instance.HideBanner();
+        } catch
+        {
+            Debug.Log("Unexpected Error while showing Ads");
+        }
+
         InitGameObject();
         RefreshMainMenu();
         RefreshKeyTime();
@@ -156,7 +165,7 @@ public class MainMenu : MonoBehaviour
         }
         //FbAdsManager.instance.LoadBanner(AudienceNetwork.AdPosition.BOTTOM);
         matchmakingInfoText = panelFindingMatch.Find("Text").GetComponent<Text>();
-    }
+        }
 
     private void OnApplicationFocus(bool b)
     {
@@ -426,7 +435,16 @@ public class MainMenu : MonoBehaviour
             panelContentFormationSet.Find("Selected").gameObject.SetActive(value: false);
             RefreshFormation();
             RefreshDeck();
-            FbAdsManager.instance.LoadInterstitial();
+            //FbAdsManager.instance.LoadInterstitial();
+            try
+            {
+                if (PlayerPrefsX.GetBool("tutorial"))
+                    UnityAdsManager.Instance.LoadNonRewardedAd();
+            }
+            catch
+            {
+                Debug.Log("Unexpected error while showing Ads");
+            }
         }
         else if (activeMenu == 2)
         {
@@ -851,7 +869,8 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator OpenLoot(string[] loot)
     {
-        FbAdsManager.instance.LoadInterstitial();
+        //FbAdsManager.instance.LoadInterstitial();
+
         List<string> loots = new List<string>(loot);
         while (loots.Count > 1)
         {
@@ -1227,7 +1246,17 @@ public class MainMenu : MonoBehaviour
 
 
                 //Matchmaker.Instance.StartMatchmaking();
-                FbAdsManager.instance.LoadInterstitial();
+                //FbAdsManager.instance.LoadInterstitial();
+                try
+                {
+                    if (PlayerPrefsX.GetBool("tutorial"))
+                        UnityAdsManager.Instance.LoadNonRewardedAd();
+                }
+                catch
+                {
+                    Debug.Log("Unexpected error while showing Ads");
+                }
+
                 Run.After(UnityEngine.Random.Range(2f, 4f), delegate
                 {
                     panelFindingMatch.Find("Text").GetComponent<Text>().text = "MATCH FOUND!";
@@ -1274,10 +1303,14 @@ public class MainMenu : MonoBehaviour
                 {
                     isButton = false;
                     adsVideoNumber = 3;
-                    //if (!ADMOB.instance.ShowRewardVideo(ADMOB.instance.HandleShowResult))
-                    //{
-                    //	RefreshAlert("CONNECTION ERROR", "Sorry, There's problem on Internet. Please wait and try again in 30s. (^^,");
-                    //}
+                    if (!AliScripts.AliExtras.CheckInternetConnection())
+                    {
+                        RefreshAlert("CONNECTION ERROR", "Sorry, There's problem on Internet. Please wait and try again in 30s. (^^,");
+                    }
+                    else
+                    {
+                        KeyAds();
+                    }
                 });
             }
         });
@@ -1399,19 +1432,49 @@ public class MainMenu : MonoBehaviour
     private void LootADS()
     {
         adsVideoNumber = 1;
-        //if (!ADMOB.instance.ShowRewardVideo(ADMOB.instance.HandleShowResult))
-        //{
-        //	VideoAdsHandle(result: false);
-        //}
+        try
+        {
+            UnityAdsManager.Instance.LoadRewardedAd((bool succ) =>
+            {
+                VideoAdsHandle(succ);
+            });
+        }
+        catch
+        {
+            Debug.Log("Unexpected error while showing Ads");
+        }
     }
 
     private void GiftADS()
     {
         adsVideoNumber = 2;
-        //if (!ADMOB.instance.ShowRewardVideo(ADMOB.instance.HandleShowResult))
-        //{
-        //	VideoAdsHandle(result: false);
-        //}
+        try
+        {
+            UnityAdsManager.Instance.LoadRewardedAd((bool succ) =>
+            {
+                VideoAdsHandle(succ);
+            });
+        }
+        catch
+        {
+            Debug.Log("Unexpected error while showing Ads");
+        }
+    }
+
+    private void KeyAds()
+    {
+        adsVideoNumber = 3;
+        try
+        {
+            UnityAdsManager.Instance.LoadRewardedAd((bool succ) =>
+            {
+                VideoAdsHandle(succ);
+            });
+        }
+        catch
+        {
+            Debug.Log("Unexpected error while showing Ads");
+        }
     }
 
     public void VideoAdsHandle(bool result)

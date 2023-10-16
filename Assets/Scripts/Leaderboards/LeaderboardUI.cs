@@ -20,7 +20,14 @@ public class LeaderboardUI : MonoBehaviour
     {
         leaderboardOpenBtn.onClick.AddListener(async () => {
 
-            FbAdsManager.instance.LoadInterstitial();
+            //FbAdsManager.instance.LoadInterstitial();
+            try
+            {
+                UnityAdsManager.Instance.LoadNonRewardedAd();
+            }
+            catch {
+                Debug.Log("Unexpected error while showing Ads");
+            }
             leadeboardPannel.SetActive(true);
 
             List<Leaderboardentity> entries = await LeaderboardManager.instance.GetEntries();
