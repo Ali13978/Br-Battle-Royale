@@ -29,10 +29,10 @@ public class SplashScreen : MonoBehaviour
     [SerializeField] TMP_InputField nameInputField;
     [SerializeField] Button setNameDoneBtn;
 
-    [Header("Login-panel")]
-    [SerializeField] public GameObject loginPannel;
-    [SerializeField] Button continueWithGoogleBtn;
-    [SerializeField] Button continueWithFacebookBtn;
+    //[Header("Login-panel")]
+    //[SerializeField] public GameObject loginPannel;
+    //[SerializeField] Button continueWithGoogleBtn;
+    //[SerializeField] Button continueWithFacebookBtn;
 
     [Header("Loading-Pannel")]
     [SerializeField] GameObject loadingPannel;
@@ -58,34 +58,34 @@ public class SplashScreen : MonoBehaviour
             Application.Quit();
         });
         
-		continueWithGoogleBtn.onClick.AddListener(() =>
-		{
-			LoginManager.Instance.ContinueWithGoogle(() =>
-			{
-                TurnOffAllPannels();
-                loadingPannel.SetActive(true);
-			},
-			() =>
-			{
-                TurnOffAllPannels();
-                loginPannel.SetActive(true);
-			});
-		});
+		//continueWithGoogleBtn.onClick.AddListener(() =>
+		//{
+		//	LoginManager.Instance.ContinueWithGoogle(() =>
+		//	{
+  //              TurnOffAllPannels();
+  //              loadingPannel.SetActive(true);
+		//	},
+		//	() =>
+		//	{
+  //              TurnOffAllPannels();
+  //              loginPannel.SetActive(true);
+		//	});
+		//});
 
-		continueWithFacebookBtn.onClick.AddListener(() =>
-		{
-			LoginManager.Instance.ContinueWithFacebook(() =>
-            {
-                Time.timeScale = 1f;
-                TurnOffAllPannels();
-                loadingPannel.SetActive(true);
-			}, () =>
-			{
-				Time.timeScale = 1f;
-                TurnOffAllPannels();
-				loginPannel.SetActive(true);
-			});
-		});
+		//continueWithFacebookBtn.onClick.AddListener(() =>
+		//{
+		//	LoginManager.Instance.ContinueWithFacebook(() =>
+  //          {
+  //              Time.timeScale = 1f;
+  //              TurnOffAllPannels();
+  //              loadingPannel.SetActive(true);
+		//	}, () =>
+		//	{
+		//		Time.timeScale = 1f;
+  //              TurnOffAllPannels();
+		//		loginPannel.SetActive(true);
+		//	});
+		//});
 
         setNameDoneBtn.onClick.AddListener(() => {
             string _playerName = nameInputField.text;
@@ -105,16 +105,17 @@ public class SplashScreen : MonoBehaviour
                 Debug.LogError(result.ErrorMessage);
             });
 
-            LoginManager.Instance.UpdatePlayerName(_playerName);
+            PlayerPrefs.SetString("PlayerName", _playerName);
         });
 
         nameInputField.onValueChanged.AddListener(OnInputFieldValueChanged);
+        isStart = true;
     }
 
     public void TurnOffAllPannels()
     {
         loadingPannel.SetActive(false);
-        loginPannel.SetActive(false);
+        //loginPannel.SetActive(false);
     }
 
 	private void Update()

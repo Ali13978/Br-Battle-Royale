@@ -427,7 +427,7 @@ public class Gameplay : MonoBehaviour
                     .sprite = loot[num - 1];
                 winLoseAnimation.Find("Ribbon").Find("Text").GetComponent<TMP_Text>().text = "Win";
 
-                LeaderboardManager.instance.AddScore(30);
+                //LeaderboardManager.instance.AddScore(30);
             }
             else if (global.winLoseCondition == 2)
             {

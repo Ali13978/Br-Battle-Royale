@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +15,7 @@ public class GameplayPrepare : MonoBehaviour
         if (jsonFile != null)
         {
             string jsonString = jsonFile.text;
-            PlayerNamesData data = JsonConvert.DeserializeObject<PlayerNamesData>(jsonString);
+            PlayerNamesData data = JsonUtility.FromJson<PlayerNamesData>(jsonString);
             namesOfPlayersAway = new List<string>(data.playerNames);
 
         }
@@ -46,7 +45,7 @@ public class GameplayPrepare : MonoBehaviour
     {
 		string awayTeamPlayerName = SelectRandomElement<string>(namesOfPlayersAway);
 		playerAwayName.text = awayTeamPlayerName;
-		playerHomeName.text = LoginManager.Instance.playerName;
+		playerHomeName.text = PlayerPrefs.GetString("PlayerName");
     }
     public T SelectRandomElement<T>(List<T> list)
     {
