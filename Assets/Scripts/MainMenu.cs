@@ -149,7 +149,7 @@ public class MainMenu : MonoBehaviour
     {
         try
         {
-            UnityAdsManager.Instance.HideBanner();
+            IronSourceAdsManager.instance.HideBanner();
         } catch
         {
             Debug.Log("Unexpected Error while showing Ads");
@@ -439,7 +439,7 @@ public class MainMenu : MonoBehaviour
             try
             {
                 if (PlayerPrefsX.GetBool("tutorial"))
-                    UnityAdsManager.Instance.LoadNonRewardedAd();
+                    IronSourceAdsManager.instance.LoadNonRewardedAd();
             }
             catch
             {
@@ -1250,7 +1250,7 @@ public class MainMenu : MonoBehaviour
                 try
                 {
                     if (PlayerPrefsX.GetBool("tutorial"))
-                        UnityAdsManager.Instance.LoadNonRewardedAd();
+                        IronSourceAdsManager.instance.LoadNonRewardedAd();
                 }
                 catch
                 {
@@ -1434,7 +1434,7 @@ public class MainMenu : MonoBehaviour
         adsVideoNumber = 1;
         try
         {
-            UnityAdsManager.Instance.LoadRewardedAd((bool succ) =>
+            IronSourceAdsManager.instance.LoadRewardedAd((bool succ) =>
             {
                 VideoAdsHandle(succ);
             });
@@ -1450,7 +1450,7 @@ public class MainMenu : MonoBehaviour
         adsVideoNumber = 2;
         try
         {
-            UnityAdsManager.Instance.LoadRewardedAd((bool succ) =>
+            IronSourceAdsManager.instance.LoadRewardedAd((bool succ) =>
             {
                 VideoAdsHandle(succ);
             });
@@ -1466,7 +1466,7 @@ public class MainMenu : MonoBehaviour
         adsVideoNumber = 3;
         try
         {
-            UnityAdsManager.Instance.LoadRewardedAd((bool succ) =>
+            IronSourceAdsManager.instance.LoadRewardedAd((bool succ) =>
             {
                 VideoAdsHandle(succ);
             });

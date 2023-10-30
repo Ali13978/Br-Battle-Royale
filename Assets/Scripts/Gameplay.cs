@@ -33,7 +33,7 @@ public class Gameplay : MonoBehaviour
         //ADMOB.instance.ShowBanner(AdPosition.TOP_CENTER);
         try
         {
-            UnityAdsManager.Instance.ShowBanner(UnityEngine.Advertisements.BannerPosition.TOP_CENTER);
+            IronSourceAdsManager.instance.ShowBanner(IronSourceBannerPosition.TOP);
         }
         catch
         {

@@ -23,7 +23,7 @@ public class LeaderboardUI : MonoBehaviour
             //FbAdsManager.instance.LoadInterstitial();
             try
             {
-                UnityAdsManager.Instance.LoadNonRewardedAd();
+                IronSourceAdsManager.instance.LoadNonRewardedAd();
             }
             catch {
                 Debug.Log("Unexpected error while showing Ads");

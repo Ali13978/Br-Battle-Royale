@@ -11,7 +11,10 @@
     <package>com.facebook.android:facebook-gamingservices:[16.0.1,17)</package>
     <package>com.facebook.android:facebook-login:[16.0.1,17)</package>
     <package>com.facebook.android:facebook-share:[16.0.1,17)</package>
+    <package>com.google.android.gms:play-services-ads-identifier:18.0.1</package>
     <package>com.google.android.gms:play-services-auth:11.4.0</package>
+    <package>com.google.android.gms:play-services-basement:18.1.0</package>
+    <package>com.ironsource.sdk:mediationsdk:7.5.2</package>
     <package>com.parse.bolts:bolts-android:1.4.0</package>
   </packages>
   <files>
@@ -65,20 +68,23 @@
     <file>Assets/Plugins/Android/com.facebook.android.facebook-gamingservices-16.2.0.aar</file>
     <file>Assets/Plugins/Android/com.facebook.android.facebook-login-16.2.0.aar</file>
     <file>Assets/Plugins/Android/com.facebook.android.facebook-share-16.2.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-11.4.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-api-phone-11.4.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-base-11.4.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-11.4.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-11.4.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-11.4.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-18.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-20.7.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-api-phone-18.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-base-18.0.4.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-18.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-18.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-fido-20.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-18.0.1.aar</file>
     <file>Assets/Plugins/Android/com.google.code.gson.gson-2.8.8.jar</file>
     <file>Assets/Plugins/Android/com.google.zxing.core-3.3.3.jar</file>
+    <file>Assets/Plugins/Android/com.ironsource.sdk.mediationsdk-7.5.2.aar</file>
     <file>Assets/Plugins/Android/com.parse.bolts.bolts-android-1.4.0.jar</file>
     <file>Assets/Plugins/Android/com.parse.bolts.bolts-applinks-1.4.0.jar</file>
     <file>Assets/Plugins/Android/com.parse.bolts.bolts-tasks-1.4.0.jar</file>
     <file>Assets/Plugins/Android/org.jetbrains.annotations-13.0.jar</file>
-    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-1.5.10.jar</file>
-    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-common-1.5.10.jar</file>
+    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-1.6.0.jar</file>
+    <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-common-1.6.0.jar</file>
     <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk7-1.5.10.jar</file>
     <file>Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk8-1.5.10.jar</file>
   </files>

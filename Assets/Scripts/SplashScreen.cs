@@ -47,7 +47,7 @@ public class SplashScreen : MonoBehaviour
     {
         try
         {
-            UnityAdsManager.Instance.ShowBanner(UnityEngine.Advertisements.BannerPosition.TOP_CENTER);
+            IronSourceAdsManager.instance.ShowBanner(IronSourceBannerPosition.TOP);
         }
         catch
         {

@@ -108,7 +108,7 @@ public class LoginManager : MonoBehaviour
     public void ContinueWithGoogle(Action pressed, Action Failed)
     {
         pressed?.Invoke();
-        googleSignInScript.SignIn("1019811479668-bj69025autfkqlpji5patu7knt1kijsk.apps.googleusercontent.com",
+        googleSignInScript.SignIn("183878201568-k3sea653vehsamln30hg708oirrrcglh.apps.googleusercontent.com",
             async (Acc) => {
                 Debug.Log("SignedIn with id: " + Acc.Id);
 
